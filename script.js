@@ -198,3 +198,61 @@ window.onload = () => {
     addMessage("bot", "👋 Hello! How can I help you about our college?");
   }, 100);
 };
+ // show response
+  setTimeout(() => addMessage("bot", response), 200);
+}
+window.onload = () => {
+  showTyping();
+  setTimeout(() => {
+    const typing = document.getElementById("typing");
+    if (typing) typing.remove();
+
+    addMessage("bot", "👋 Hello! How can I help you about our college?");
+  }, 100);
+};
+// if you have api add this
+async function sendMessage() {
+  if (recognition && recognition.running) {
+    recognition.stop();
+  }
+
+  const message = userInput.value.trim();
+  if (message === "") return;
+
+  addMessage("user", message);
+  showTyping();
+
+  userInput.value = "";
+
+  try {
+    const res = await fetch("http://127.0.0.1:5000/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ message: message })
+    });
+
+    const data = await res.json();
+
+    removeTyping();
+    addMessage("bot", data.response);
+
+  } catch (error) {
+    removeTyping();
+    addMessage("bot", "⚠️ Server error. Try again.");
+  }
+}
+// helper function
+function removeTyping() {
+  const typing = document.getElementById("typing");
+  if (typing) typing.remove();
+
+  const blinking = document.getElementById("blinking");
+  if (blinking) blinking.remove();
+}
+//update function
+function sendQuickMessage(message) {
+  userInput.value = message;
+  sendMessage();
+}
