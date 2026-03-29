@@ -17,7 +17,7 @@ Built with **HTML, CSS, and JavaScript**,**flask backend** this chatbot gives a 
 -Easy to extend and customize
 
 ---
-
+``` bash
 ##  Technologies Used  
 
 Tech Stack
@@ -70,7 +70,7 @@ http://127.0.0.1:5000
 Step 5: Run the Frontend
 
 Open the index.html file in your browser.
---- bash
+``` bash
 ## Project Structure
 college-chatbot/
 │
@@ -90,7 +90,7 @@ Response
   "response": "Chatbot reply"
 }
 ---
----bash
+```bash
 ## Future Improvements
 -Add database for chat history
 -Implement user authentication
@@ -99,8 +99,10 @@ Response
 -Deploy application to cloud platforms
 -Improve UI with modern frameworks
 ---
+
 ##Conclusion
 This project demonstrates a complete full stack chatbot application with AI integration. It is suitable for learning, experimentation, and as a strong resume project showcasing frontend, backend, and AI capabilities.
+```bash
 Contact
 Created by: L.ganesh Naik
 GitHub: https://github.com/ganeshnaik399
